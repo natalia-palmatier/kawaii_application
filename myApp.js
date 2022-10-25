@@ -1,9 +1,21 @@
 var http = require('http');
 
 var server = http.createServer((req, res) => {
-    // console.log("Joined!");
+    const url = req.url;
+if (url == '/profile') {
     res.setHeader('Content-Type', 'text/html');
-    res.write('<p>test content</p>');
+    res.write('<p> profile page test </p>');
+    return res.end();
+
+}
+else if (url == '/') {
+    res.setHeader('Content-Type', 'text/html');
+    res.write('<p> main page test </p>')
+    return res.end();
+}
+
+    res.setHeader('Content-Type', 'text/html');
+    res.write('<p>No Page</p>');
     res.end();
 })
 
