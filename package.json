@@ -1,0 +1,19 @@
+{
+  "name": "kawaii_twit",
+  "version": "1.0.0",
+  "description": "a text based app to allow friends to keep up with eachother",
+  "main": "myApp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natalia-codes/kawaii_application.git"
+  },
+  "author": "Natalia Palmatier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/natalia-codes/kawaii_application/issues"
+  },
+  "homepage": "https://github.com/natalia-codes/kawaii_application#readme"
+}
