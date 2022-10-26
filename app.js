@@ -16,6 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // routes 
 const loginRoute = require('./routes/loginRoutes');
 
+
 app.use('/login', loginRoute);
 
 app.get('/', middleware.requireLogin, (req, res, next) => {
