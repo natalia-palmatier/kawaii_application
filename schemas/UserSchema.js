@@ -32,8 +32,8 @@ const UserSchema = new Schema({
     profilePic: {
         type: String,
         default: "/images/default.png"
-    },
-});
+    }, 
+}, { timestamps: true });
 
 var User = mongoose.model('User', UserSchema);
 
