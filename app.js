@@ -35,7 +35,9 @@ app.use("/register", registerRoute);
 app.get('/', middleware.requireLogin, (req, res, next) => {
 
     var payload = {
-        pageTitle: 'Home'
+        pageTitle: 'Home',
+        // passes info about the user logged in to the pages of the site 
+        userLoggedIn: req.session.user
     }
 
 
