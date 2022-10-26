@@ -10,6 +10,11 @@ const server = app.listen(port, () => console.log('server listening on port '.ra
 app.set('view engine', 'pug');
 app.set('views', 'views');
 
+// routes 
+const loginRoute = require('./routes/loginRoutes');
+
+app.use('/login', loginRoute);
+
 app.get('/', middleware.requireLogin, (req, res, next) => {
 
     var payload = {
