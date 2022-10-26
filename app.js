@@ -5,6 +5,7 @@ const middleware = require('./middleware')
 const path = require('path')
 const bodyParser = require('body-parser')
 const mongoose = require('./database');
+const session = require('express-session')
 
 const colors = require('colors')
 
@@ -16,6 +17,12 @@ app.set('views', 'views');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+    secret: 'test session redirect',
+    resave: true,
+    saveUninitialized: false
+}))
 
 // routes 
 const loginRoute = require('./routes/loginRoutes');
