@@ -33,4 +33,8 @@ const UserSchema = new Schema({
         type: String,
         default: "/imagesdefault"
     },
-})
+});
+
+var User = mongoose.model('User', UserSchema);
+
+module.exports = User;
