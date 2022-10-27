@@ -6,11 +6,23 @@ $("#postTextarea").keyup(event => {
 
     if(submitButton.length == 0) return alert("No submit button found");
 
-    // check if text is presence in text box (if not, then disable)
     if (value == "") {
         submitButton.prop("disabled", true);
         return;
     }
 
     submitButton.prop("disabled", false);
+})
+
+$("#submitPostButton").click(() => {
+    var button = $(event.target);
+    var textbox = $("#postTextarea");
+
+    var data = {
+        content: textbox.val()
+    }
+
+    $.post("/api/posts", data, (postData, status, xhr) => {
+        alert(postData);
+    })
 })
