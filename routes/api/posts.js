@@ -46,16 +46,21 @@ router.put("/:id/like", async (req, res, next) => {
 
     var postId = req.params.id;
     var userId = req.session.user._id;
-    // console.log(req.params.id);
-    
-    // will boolean depending on whether the post exists in their likes or not 
-    var isLiked = req.session.user.likes && req.session.user.likes.includes(postId)
-//  insert user like (keeps trak of all the likes made by singular user)
 
-// insert post like (will keep track of all the users that liked the post)
+    var isLiked = req.session.user.likes && req.session.user.likes.includes(postId);
 
-    // console.log("is liked:", isLiked)
-    res.status(200).send('test');
+    var option = isLiked ? "$pull" : "$addToSet";
+
+    console.log("Is liked: " + isLiked)
+    console.log("Option: " + option)
+    console.log("UserId: " + userId)
+
+    // Insert user like
+    await User.findByIdAndUpdate(userId, { [option]: { likes: postId } })
+
+    // Insert post like
+
+    res.status(200).send("Yahoo")
 })
 
 module.exports = router;
