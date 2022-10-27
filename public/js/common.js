@@ -91,6 +91,14 @@ function getPostIdFromElement(element) {
 }
 
 function createPostHtml(postData) {
+
+    if(postData == null) return alert("post object is null");
+
+    var isRetweet = postData.retweetData !== undefined;
+    var retweetedBy = isRetweet ? postData.postedBy.username : null;
+    postData = isRetweet ? postData.retweetData : postData;
+
+    console.log(isRetweet);
     
     var postedBy = postData.postedBy;
 
@@ -103,7 +111,6 @@ function createPostHtml(postData) {
 
     var likeButtonActiveClass = postData.likes.includes(userLoggedIn._id) ? "active" : "";
     var retweetButtonActiveClass = postData.retweetUsers.includes(userLoggedIn._id) ? "active" : "";
-
 
     return `<div class='post' data-id='${postData._id}'>
 
