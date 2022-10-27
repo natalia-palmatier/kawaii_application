@@ -30,24 +30,25 @@ $("#submitPostButton").click(() => {
         button.prop("disabled", true);
     })
 })
-// attaching click handler to document itself so now whole page will listen for clicks on any of the elements on the .likeButton class 
-// i.e when the page loads the buttons arent on so the event handler has nothing to attach to.
+
 $(document).on("click", ".likeButton", (event) => {
     var button = $(event.target);
     var postId = getPostIdFromElement(button);
-
+    
     if(postId === undefined) return;
 
     $.ajax({
         url: `/api/posts/${postId}/like`,
         type: "PUT",
         success: (postData) => {
-            console.log(postData);
+            
+            button.find("span").text(postData.likes.length || "");
+
         }
     })
+
 })
 
-// in the case that someone clicks on the post itself to enlarge/view it
 function getPostIdFromElement(element) {
     var isRoot = element.hasClass("post");
     var rootElement = isRoot == true ? element : element.closest(".post");
@@ -98,6 +99,7 @@ function createPostHtml(postData) {
                             <div class='postButtonContainer'>
                                 <button class='likeButton'>
                                     <i class='far fa-heart'></i>
+                                    <span>${postData.likes.length || ""}</span>
                                 </button>
                             </div>
                         </div>
