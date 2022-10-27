@@ -1,10 +1,10 @@
 :root {
-    --blue: #1FA2F1;
-    --blueLight: #9BD1F9;
-    --buttonHoverBg: #d4edff;
-    --lightGrey: rgb(230, 236, 240);
+    --pink: #f11fc3;
+    --pinkLight: #f99be4;
+    --buttonHoverBg: #d396cf;
+    --lightGrey: rgb(240, 230, 238);
     --spacing: 15px;
-    --greyText: rgb(101, 119, 134);
+    --greyText: rgb(10, 9, 10);
     --greyButtonText: rgba(0,0,0,0.34);
 }
 
@@ -42,16 +42,16 @@ nav a {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #212529;
+    color: #dea8de;
 }
 
 nav a.blue {
-    color: var(--blue);
+    color: var(--pink);
 }
 
 nav a:hover {
     background-color: var(--buttonHoverBg);
-    color: var(--blue);
+    color: var(--pink);
     border-radius: 50%;
 }
 
@@ -113,7 +113,7 @@ button {
 }
 
 #submitPostButton {
-    background-color: var(--blue);
+    background-color: var(--pink);
     color: white;
     border: none;
     border-radius: 40px;
@@ -121,7 +121,7 @@ button {
 }
 
 #submitPostButton:disabled {
-    background-color: var(--blueLight);
+    background-color: var(--pinkLight);
 }
 
 .post {
@@ -178,7 +178,7 @@ button {
 }
 
 .postButtonContainer button:hover {
-    background-color: #d4edff;
-    color: var(--blue);
+    background-color: #ffd4f7;
+    color: var(--pink);
     border-radius: 50%;
 }
