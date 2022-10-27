@@ -1,5 +1,7 @@
 body {
-    background-color: pink;
+    margin-top: 180px;
+    /* background-color: pink; */
+    background: url("/images/back_contain.jpeg");
 }
 
 .wrapper {
@@ -14,6 +16,7 @@ body {
     max-width: 500px;
     border: 1px solid #dedede;
     background-color: #fff;
+    /* background: url("/images/back_contain.jpeg"); */
     text-align: center;
     box-shadow: 0 1px 4px rgba(0,0,0,0.3);
     -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.3);
