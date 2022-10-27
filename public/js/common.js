@@ -35,7 +35,16 @@ $("#submitPostButton").click(() => {
 $(document).on("click", ".likeButton", (event) => {
     var button = $(event.target);
     var postId = getPostIdFromElement(button);
-    console.log(postId);
+
+    if(postId === undefined) return;
+
+    $.ajax({
+        url: "/api/posts",
+        type: "PUT",
+        success: (postData) => {
+            console.log(postData);
+        }
+    })
 })
 
 // in the case that someone clicks on the post itself to enlarge/view it
