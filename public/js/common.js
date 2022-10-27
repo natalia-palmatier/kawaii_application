@@ -30,6 +30,24 @@ $("#submitPostButton").click(() => {
         button.prop("disabled", true);
     })
 })
+// attaching click handler to document itself so now whole page will listen for clicks on any of the elements on the .likeButton class 
+// i.e when the page loads the buttons arent on so the event handler has nothing to attach to.
+$(document).on("click", ".likeButton", (event) => {
+    var button = $(event.target);
+    var postId = getPostIdFromElement(button);
+    console.log(postId);
+})
+
+// in the case that someone clicks on the post itself to enlarge/view it
+function getPostIdFromElement(element) {
+    var isRoot = element.hasClass("post");
+    var rootElement = isRoot == true ? element : element.closest(".post");
+    var postId = rootElement.data().id;
+
+    if(postId === undefined) return alert("Post id undefined");
+
+    return postId;
+}
 
 function createPostHtml(postData) {
     
@@ -42,7 +60,7 @@ function createPostHtml(postData) {
     var displayName = postedBy.firstName + " " + postedBy.lastName;
     var timestamp = timeDifference(new Date(), new Date(postData.createdAt));
 
-    return `<div class='post'>
+    return `<div class='post' data-id='${postData._id}'>
 
                 <div class='mainContentContainer'>
                     <div class='userImageContainer'>
@@ -69,7 +87,7 @@ function createPostHtml(postData) {
                                 </button>
                             </div>
                             <div class='postButtonContainer'>
-                                <button>
+                                <button class='likeButton'>
                                     <i class='far fa-heart'></i>
                                 </button>
                             </div>
