@@ -42,7 +42,9 @@ router.post("/", async (req, res, next) => {
     })
 })
 
-router.put("/", async (req, res, next) => {
+router.put("/:id/like", async (req, res, next) => {
+
+    console.log(req.params.id);
     res.status(200).send('test');
 })
 
