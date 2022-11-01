@@ -1,6 +1,7 @@
 :root {
     --pink: #f11fc3;
     --pinkLight: #f99be4;
+    --pinkBackground: rgba(239, 189, 238, 0.902);
     --buttonHoverBg: #d396cf;
     --lightGrey: rgb(240, 230, 238);
     --spacing: 15px;
@@ -49,7 +50,7 @@ nav a {
     color: #dea8de;
 }
 
-nav a.blue {
+nav a.pink {
     color: var(--pink);
 }
 
@@ -232,7 +233,7 @@ button span {
 }
 
 .replyFlag a {
-    color: var(--blue);
+    color: var(--pinkLight);
 }
 
 .post.largeFont .postBody,
@@ -293,7 +294,7 @@ button span {
 }
 
 .followButton.following {
-    background-color: var(--blue);
+    background-color: var(--pinkLight);
     color: #fff;
 }
 
@@ -318,4 +319,30 @@ button span {
 
 .followersContainer a:hover {
     border-bottom: 1px solid #000;
+}
+
+.tabsContainer {
+    display: flex;
+    border-bottom: 1px solid var(--lightGrey);
+    flex-shrink: 0;
+}
+
+.tab {
+    flex: 1;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--greyText);
+    font-weight: bold;
+}
+
+.tab.active {
+    color: var(--pinkLight);
+    border-bottom: 2px solid var(--pinkLight);
+}
+
+.tab:hover {
+    color: var(--pinkLight);
+    background-color: var(--pinkBackground);
 }
