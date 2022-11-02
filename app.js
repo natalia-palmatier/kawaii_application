@@ -11,48 +11,43 @@ const colors = require('colors')
 
 const server = app.listen(port, () => console.log('server listening on port '.rainbow + port));
 
-app.set('view engine', 'pug');
-app.set('views', 'views');
-
+app.set("view engine", "pug");
+app.set("views", "views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(session({
-    secret: 'test session redirect',
+    secret: "test session redirect",
     resave: true,
     saveUninitialized: false
 }))
 
-// routes 
+// Routes
 const loginRoute = require('./routes/loginRoutes');
 const registerRoute = require('./routes/registerRoutes');
 const postRoute = require('./routes/postRoutes');
 const profileRoute = require('./routes/profileRoutes');
 
-const logoutRoute = require('./routes/logout');
-
-// API Routes:
+// Api routes
 const postsApiRoute = require('./routes/api/posts');
+const usersApiRoute = require('./routes/api/users');
 
-
-app.use('/login', loginRoute);
+app.use("/login", loginRoute);
 app.use("/register", registerRoute);
 app.use("/posts", middleware.requireLogin, postRoute);
 app.use("/profile", middleware.requireLogin, profileRoute);
-app.use("/logout", logoutRoute);
 
 app.use("/api/posts", postsApiRoute);
+app.use("/api/users", usersApiRoute);
 
-app.get('/', middleware.requireLogin, (req, res, next) => {
+app.get("/", middleware.requireLogin, (req, res, next) => {
 
     var payload = {
-        pageTitle: 'Home',
-        // passes info about the user logged in to the pages of the site 
+        pageTitle: "Home",
         userLoggedIn: req.session.user,
         userLoggedInJs: JSON.stringify(req.session.user),
     }
 
-
-    res.status(200).render('home', payload);
+    res.status(200).render("home", payload);
 })
