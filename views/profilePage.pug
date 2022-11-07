@@ -16,7 +16,7 @@ block content
             .profileButtonsContainer
                 if profileUser._id != userLoggedIn._id
                     a.profileButton(href=`/messages/${profileUser._id}`)
-                        i.fas.fa-envelope
+                        i.fa-solid.fa-envelope
                     +createFollowButton(profileUser, false)
             .userDetailsContainer
                 span.displayName #{profileUser.firstName} #{profileUser.lastName}
@@ -25,7 +25,7 @@ block content
 
                 .followersContainer
                     a(href=`/profile/${profileUser.username}/following`)
-                        span.value #{0}
+                        span.value #{2}
                         span Following
                     a(href=`/profile/${profileUser.username}/followers`)
                         span.value #{0}

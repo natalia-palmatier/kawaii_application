@@ -60,6 +60,10 @@ nav a:hover {
     border-radius: 50%;
 }
 
+.wrapper > .row {
+    margin: 0;
+}
+
 button {
     background-color: transparent;
     border: none;
@@ -276,11 +280,14 @@ button span {
     padding: var(--spacing);
     min-height: 66px;
 }
+.profileButtonsContainer {
+    background-color: pink;
+}
 
 .profileButton,
 .followButton {
-    border: 1px solid var(--pinkLight);
-    color: var(--pinkLight);
+    border: 1px solid var(--blue);
+    color: var(--blue);
     font-weight: bold;
     padding: 5px 15px;
     border-radius: 60px;
@@ -290,11 +297,11 @@ button span {
 
 .profileButton:hover,
 .followButton:hover {
-    background-color: var(--pinkBackground);
+    background-color: var(--blueBackground);
 }
 
 .followButton.following {
-    background-color: var(--pinkLight);
+    background-color: var(--green);
     color: #fff;
 }
 

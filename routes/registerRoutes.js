@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const bodyParser = require("body-parser")
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 const User = require('../schemas/UserSchema');
 
 app.set("view engine", "pug");
@@ -40,15 +40,13 @@ router.post("/", async (req, res, next) => {
 
         if(user == null) {
             // No user found
-
             var data = req.body;
-            // hash password before entering database
-            data.password = await bcrypt.hash(password, 10)
+            data.password = await bcrypt.hash(password, 10);
 
             User.create(data)
             .then((user) => {
                 req.session.user = user;
-                return res.redirect('/')
+                return res.redirect("/");
             })
         }
         else {
@@ -61,9 +59,6 @@ router.post("/", async (req, res, next) => {
             }
             res.status(200).render("register", payload);
         }
-        
-        
-
     }
     else {
         payload.errorMessage = "Make sure each field has a valid value.";
