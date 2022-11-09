@@ -372,3 +372,14 @@ button span {
     flex: 1;
     padding: 0 var(--spacing)
 }
+
+.profilePictureButton {
+    position: absolute;
+    font-size: 50px;
+    color: rgba(0,0,0,0.6);
+    display: none;
+}
+
+.userImageContainer:hover .profilePictureButton {
+    display: block;
+}
