@@ -47,7 +47,7 @@ nav a {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #dea8de;
+    color: #ca8fc1;
 }
 
 nav a.pink {
@@ -202,7 +202,7 @@ button span {
 }
 
 .postButtonContainer button:hover {
-    background-color: #ffd4f7;
+    background-color: #d4edff;
     color: var(--pink);
     border-radius: 50%;
 }
@@ -237,7 +237,7 @@ button span {
 }
 
 .replyFlag a {
-    color: var(--pinkLight);
+    color: var(--pink);
 }
 
 .post.largeFont .postBody,
@@ -257,9 +257,9 @@ button span {
     padding: var(--spacing);
 }
 
-.coverPhotoContainer {
+.coverPhotoSection {
     height: 180px;
-    background-color: var(--pinkLight);
+    background-color: var(--pink);
     position: relative;
 }
 
@@ -269,6 +269,10 @@ button span {
     margin-left: var(--spacing);
     position: absolute;
     bottom: -66px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .profileHeaderContainer .userImageContainer img {
@@ -280,14 +284,11 @@ button span {
     padding: var(--spacing);
     min-height: 66px;
 }
-.profileButtonsContainer {
-    background-color: pink;
-}
 
 .profileButton,
 .followButton {
-    border: 1px solid var(--blue);
-    color: var(--blue);
+    border: 1px solid var(--pink);
+    color: var(--pink);
     font-weight: bold;
     padding: 5px 15px;
     border-radius: 60px;
@@ -297,11 +298,11 @@ button span {
 
 .profileButton:hover,
 .followButton:hover {
-    background-color: var(--blueBackground);
+    background-color: var(--pinkBackground);
 }
 
 .followButton.following {
-    background-color: var(--green);
+    background-color: var(--pink);
     color: #fff;
 }
 
@@ -345,14 +346,15 @@ button span {
 }
 
 .tab.active {
-    color: var(--pinkLight);
-    border-bottom: 2px solid var(--pinkLight);
+    color: var(--pink);
+    border-bottom: 2px solid var(--pink);
 }
 
 .tab:hover {
-    color: var(--pinkLight);
+    color: var(--pink);
     background-color: var(--pinkBackground);
 }
+
 .noResults {
     padding: var(--spacing);
 }
@@ -373,19 +375,30 @@ button span {
     padding: 0 var(--spacing)
 }
 
-.profilePictureButton {
+.profilePictureButton,
+.coverPhotoButton {
     position: absolute;
     font-size: 50px;
-    color: rgba(0,0,0,0.6);
+    color: rgba(230, 185, 227, 0.6);
     display: none;
 }
 
-.userImageContainer:hover .profilePictureButton {
+.userImageContainer:hover .profilePictureButton,
+.coverPhotoSection:hover .coverPhotoButton {
     display: block;
+}
+
+.coverPhotoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 #imagePreview {
     width: 100%;
     display: block;
+ 
+    /* This rule is very important, please don't ignore this */
     max-width: 100%;
 }
