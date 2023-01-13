@@ -71,7 +71,7 @@ $("#deletePostButton").click((event) => {
     var postId = $(event.target).data("id");
 
     $.ajax({
-        url: '/api/posts/${postId}',
+        url: `/api/posts/${postId}`,
         type: "DELETE",
         success: (data, status, xhr) => {
 
@@ -183,7 +183,7 @@ $(document).on("click", ".likeButton", (event) => {
     if(postId === undefined) return;
 
     $.ajax({
-        url: '/api/posts/${postId}/like',
+        url: `/api/posts/${postId}/like`,
         type: "PUT",
         success: (postData) => {
             
@@ -208,7 +208,7 @@ $(document).on("click", ".retweetButton", (event) => {
     if(postId === undefined) return;
 
     $.ajax({
-        url: '/api/posts/${postId}/retweet',
+        url: `/api/posts/${postId}/retweet`,
         type: "POST",
         success: (postData) => {            
             button.find("span").text(postData.retweetUsers.length || "");
@@ -239,7 +239,7 @@ $(document).on("click", ".followButton", (e) => {
     var userId = button.data().user;
     
     $.ajax({
-        url: '/api/users/${userId}/follow',
+        url: `/api/users/${userId}/follow`,
         type: "PUT",
         success: (data, status, xhr) => { 
             

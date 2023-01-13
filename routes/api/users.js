@@ -67,9 +67,9 @@ router.post("/profilePicture", upload.single("croppedImage"), async (req, res, n
         return res.sendStatus(400);
     }
 
-    var filePath = '/uploads/images/${req.file.filename}.png';
+    var filePath = `/uploads/images/${req.file.filename}.png`;
     var tempPath = req.file.path;
-    var targetPath = path.join(__dirname, '../../${filePath}');
+    var targetPath = path.join(__dirname, `../../${filePath}`);
 
     fs.rename(tempPath, targetPath, async error => {
         if(error != null) {
@@ -89,9 +89,9 @@ router.post("/coverPhoto", upload.single("croppedImage"), async (req, res, next)
         return res.sendStatus(400);
     }
 
-    var filePath = '/uploads/images/${req.file.filename}.png';
+    var filePath = `/uploads/images/${req.file.filename}.png`;
     var tempPath = req.file.path;
-    var targetPath = path.join(__dirname, '../../${filePath}');
+    var targetPath = path.join(__dirname, `../../${filePath}`);
 
     fs.rename(tempPath, targetPath, async error => {
         if(error != null) {
